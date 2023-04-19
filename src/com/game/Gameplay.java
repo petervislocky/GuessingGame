@@ -28,11 +28,11 @@ public class Gameplay {
 		}
 	}
 	
+	
 	public void playGame() {
 		boolean play = true;
 		
 		while (play) {
-			int ranNum = g.ranNumGen();
 			boolean userGuessedNum = false;
 			
 			System.out.println("Number Guessing Game!(0-100)\nYou have 5 guesses ");
@@ -43,7 +43,9 @@ public class Gameplay {
 			catch(InterruptedException ex) {
 				System.out.println("Error:" + ex);
 			}
-		
+			
+			int ranNum = g.ranNumGen();
+			
 			try {
 				for (int i = 1; i < 6; i++) {
 					System.out.print("Try #" + i + ": ");
@@ -56,20 +58,18 @@ public class Gameplay {
 						userGuessedNum = true;
 						break;
 					}
-					else if (userGuess > ranNum && userGuess < 101) {
+					else if (userGuess > ranNum) {
 						System.out.println("Wrong! Too high!");
 						if (Math.abs(userGuess - ranNum) <= 2) {
 							System.out.println("Close! But too high.");
 						}
 					}
-					else if (userGuess < ranNum && userGuess > 0) {
+					else if (userGuess < ranNum) {
 						System.out.println("Wrong! Too low!");
 						if (Math.abs(userGuess - ranNum) <= 2) {
 							System.out.println("Close! But, too low.");
 						}
-					} else {
-						System.out.println("The number is between 0-100!");
-					}
+					} 
 				}
 		}
 			catch(InputMismatchException ex) {
