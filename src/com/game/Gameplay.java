@@ -1,5 +1,6 @@
 package com.game;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -71,7 +72,7 @@ public class Gameplay {
 					}
 				}
 		}
-			catch(Exception ex) {
+			catch(InputMismatchException ex) {
 				System.out.println("Must input a number. Game Over.");
 				input.nextLine();
 			}
