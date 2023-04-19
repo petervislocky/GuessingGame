@@ -4,11 +4,10 @@ import java.util.Random;
 public class Game {
 	private int UserScore = 0;
 	private int CompScore = 0;
-	int ranNum;
 	
 	public int ranNumGen() {
 		Random r = new Random();
-		this.ranNum = r.nextInt(101);
+		int ranNum = r.nextInt(101);
 		return ranNum;
 	}
 	
