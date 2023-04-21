@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 
 public class Gameplay {
+	private int ranNum;
+	
 	Game g = new Game();
 	Scanner input = new Scanner(System.in);
 	
@@ -38,14 +40,18 @@ public class Gameplay {
 			System.out.println("Number Guessing Game!(0-100)\nYou have 5 guesses ");
 			
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			}
 			catch(InterruptedException ex) {
 				System.out.println("Error:" + ex);
 			}
-			
-			int ranNum = g.ranNumGen();
-			
+			try {
+				ranNum = g.ranNumGen();
+			}
+			catch(InputMismatchException ex) {
+				System.out.println("Invalid Selection. Restarting.");
+				continue;
+			}
 			try {
 				for (int i = 1; i < 6; i++) {
 					System.out.print("Try #" + i + ": ");

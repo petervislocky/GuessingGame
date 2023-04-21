@@ -1,5 +1,4 @@
 package com.game;
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,31 +11,25 @@ public class Game {
 		System.out.println("Choose a Difficulty\n1 Easy(0-50)\n2 Medium (0-100)\n3 Hard(0-200)\n4 Extreme(0-300)");
 		int choice = input.nextInt();
 		input.nextLine();
-		try {
-			if (choice == 1) {
-				System.out.println("You chose: Easy(0-50)");
-				return 51;
-			}
-			else if(choice == 2) {
-				System.out.println("You chose: Medium(0-100)");
-				return 101;
-			}
-			else if(choice == 3) {
-				System.out.println("You chose: Hard(0-200)");
-				return 201;
-			}
-			else if(choice == 4) {
-				System.out.println("You chose: Extreme(0-300)");
-				return 301;
-			} else {
-				System.out.println("Invalid Selection. Defaulting to easy.");
-				return 1;
-			}
+		if (choice == 1) {
+			System.out.println("You chose: Easy(0-50)");
+			return 51;
 		}
-		catch(InputMismatchException ex) {
+		else if(choice == 2) {
+			System.out.println("You chose: Medium(0-100)");
+			return 101;
+		}
+		else if(choice == 3) {
+			System.out.println("You chose: Hard(0-200)");
+			return 201;
+		}
+		else if(choice == 4) {
+			System.out.println("You chose: Extreme(0-300)");
+			return 301;
+		} else {
 			System.out.println("Invalid Selection. Defaulting to easy.");
-			return 1;
-		}
+			return 51;
+		}		
 	}
 	
 	public int ranNumGen() {
