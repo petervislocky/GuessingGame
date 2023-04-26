@@ -3,12 +3,10 @@ package com.game;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class Gameplay {
 	private int ranNum;
-	
-	Game g = new Game();
-	Scanner input = new Scanner(System.in);
+	private Game g = new Game();
+	private Scanner input = new Scanner(System.in);
 	
 	public void DisplayScore() {
 		System.out.println("Score: \nYOU: " + g.GetUserScore());
@@ -30,14 +28,13 @@ public class Gameplay {
 		}
 	}
 	
-	
 	public void playGame() {
 		boolean play = true;
 		
 		while (play) {
 			boolean userGuessedNum = false;
 			
-			System.out.println("Number Guessing Game!(0-100)\nYou have 5 guesses ");
+			System.out.println("Number Guessing Game!\nYou have 5 guesses ");
 			
 			try {
 				Thread.sleep(500);
@@ -85,7 +82,11 @@ public class Gameplay {
 			if (userGuessedNum == false) {
 				g.SetCompScore();
 			}
-			System.out.println("The number was " + ranNum);
+			if (ranNum == 69) {
+				System.out.println("The number was " + ranNum + "...Nice");
+			} else {
+				System.out.println("The number was " + ranNum);				
+			}
 			DisplayScore();
 			play = playAgain();
 	}

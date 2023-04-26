@@ -29,7 +29,7 @@ public class Game {
 		} else {
 			System.out.println("Invalid Selection. Defaulting to easy.");
 			return 51;
-		}		
+		}
 	}
 	
 	public int ranNumGen() {
