@@ -28,6 +28,42 @@ public class Gameplay {
 		}
 	}
 	
+	public void questions(int num) {
+		System.out.println("Choose 1 question as a hint(1-4)");
+		System.out.println("1 Is the number even?\n2 Is the number a prime number?\n3 Is the number divisible by 5\n4 Is the number divisible by 3");
+		int qChoice = input.nextInt();
+		input.nextLine();
+		switch(qChoice) {
+		case 1:
+			if (num % 2 == 0) {
+				System.out.println("Yes");
+			} else {
+				System.out.println("No");
+			}
+			break;
+		case 2:
+			if (g.isPrime(num) == true) {
+				System.out.println("Yes");
+			} else {
+				System.out.println("No");
+			}
+			break;
+		case 3:
+			if (num % 5 == 0) {
+				System.out.println("Yes");
+			} else {
+				System.out.println("No");
+			}
+			break;
+		case 4:
+			if (num % 3 == 0) {
+				System.out.println("Yes");
+			} else {
+				System.out.println("No");
+			}
+		}
+	}
+	
 	public void playGame() {
 		boolean play = true;
 		
@@ -40,15 +76,31 @@ public class Gameplay {
 				Thread.sleep(500);
 			}
 			catch(InterruptedException ex) {
-				System.out.println("Error:" + ex);
+				System.out.println("Error: " + ex);
 			}
 			try {
 				ranNum = g.ranNumGen();
 			}
-			catch(InputMismatchException ex) {
+			catch(Exception ex) {
 				System.out.println("Invalid Selection. Restarting.");
 				continue;
 			}
+			
+			try {
+				Thread.sleep(500);
+			}
+			catch(InterruptedException ex) {
+				System.out.println("Error: " + ex);
+			}
+			try {
+				this.questions(ranNum);	
+			}
+			catch(InputMismatchException ex) {
+				System.out.println("Invalid Selection. Restarting");
+				input.next();
+				continue;
+			}
+			
 			try {
 				for (int i = 1; i < 6; i++) {
 					System.out.print("Try #" + i + ": ");
