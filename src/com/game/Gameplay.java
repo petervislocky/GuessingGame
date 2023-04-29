@@ -29,7 +29,7 @@ public class Gameplay {
 	}
 	
 	public void questions(int num) {
-		System.out.println("Choose 1 question as a hint(1-4)");
+		System.out.println("Choose 1 question as a hint(1-4) If you don't want a hint press 5");
 		System.out.println("1 Is the number even?\n2 Is the number a prime number?\n3 Is the number divisible by 5\n4 Is the number divisible by 3");
 		int qChoice = input.nextInt();
 		input.nextLine();
@@ -61,6 +61,11 @@ public class Gameplay {
 			} else {
 				System.out.println("No");
 			}
+		case 5:
+			break;
+		default:
+			System.out.println("Invalid Command. No hint for you :(");
+			break;
 		}
 	}
 	
@@ -103,12 +108,12 @@ public class Gameplay {
 			
 			try {
 				for (int i = 1; i < 6; i++) {
-					System.out.print("Try #" + i + ": ");
+					System.out.printf("Try #%d: ", i);
 					int userGuess = input.nextInt();
 					input.nextLine();
 					
 					if (userGuess == ranNum) {
-						System.out.println("Correct! You win in " + i + " tries!");
+						System.out.printf("Correct! You win in %d tries!\n", i);
 						g.SetUserScore();
 						userGuessedNum = true;
 						break;
@@ -135,9 +140,9 @@ public class Gameplay {
 				g.SetCompScore();
 			}
 			if (ranNum == 69) {
-				System.out.println("The number was " + ranNum + "...Nice");
+				System.out.printf("The number was %d...nice\n", ranNum);
 			} else {
-				System.out.println("The number was " + ranNum);				
+				System.out.printf("The number was %d\n", ranNum);				
 			}
 			DisplayScore();
 			play = playAgain();

@@ -8,6 +8,7 @@ public class Game {
 	
 	public int selectDifficulty() {
 		Scanner input = new Scanner(System.in);
+		//this resource leak is unfixable due to the creation of multiple scanner objects. create just one in the main class and reference that one whereever it is needed
 		System.out.println("Choose a Difficulty\n1 Easy(0-50)\n2 Medium (0-100)\n3 Hard(0-200)\n4 Extreme(0-300)");
 		int choice = input.nextInt();
 		input.nextLine();
