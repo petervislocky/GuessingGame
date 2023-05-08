@@ -8,6 +8,10 @@ public class Gameplay {
 	private Game g = new Game();
 	private Scanner input = new Scanner(System.in);
 	
+	public Gameplay() {
+		playGame();
+	}
+	
 	public void DisplayScore() {
 		System.out.println("Score: \nYOU: " + g.GetUserScore());
 		System.out.println("COMPUTER: " + g.GetCompScore());
